@@ -1,43 +1,109 @@
-<html lang="en" class=" -webkit-">
-  <head>
-    <meta charset="UTF-8">
-    <title>BONNE FÊTE CLAIRE!!</title>
-    <link rel="icon" type="image/png" href="/favicon.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Exo+2:200i' rel='stylesheet'>
-    <link rel="stylesheet" href="css/neon.css">
-    <link rel="stylesheet" href="css/cake.css">
-    <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body translate="no">
-    <dir class="section1">
-      <div class="banner">
-        <h1>BONNE FÊTE CLAIRE!!</h1>
-        <h3>🎉🎈🎂 I hope you have a fantastic day 🎂🎈🎉</h3>
-        <p>Click <a href="#cake">HERE</a> to see your cake!</p>
-        <p class="extra">(unfortunately "see" is the best I can do at the moment, you'll get a real cake once I'm out of quarantine jail :P)</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="images/favicon.png"/>
+  <!-- <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'> -->
+  <link rel="stylesheet" href="style.css">
+  <title>Climbing Rocks - The Card Game</title>
+</head>
+<body>
+  <header>
+    <h1>Climbing Rocks - The Card Game</h1>
+  </header>
+
+  <section>
+    <h2>The Rainy Day Card Game for Climbers & Adventurers</h2>
+    <p>
+      Climb routes, overcome cruxes, sabotage opponents, and race to the summit! <strong>Climbing Rocks</strong> is a fast‑paced card game inspired by real climbing and real locations.
+      Designed for 2–6 players, it's quick to learn but endlessly replayable.
+    </p>
+
+    <a href="https://YOUR_KICKSTARTER_LINK_HERE" class="btn" target="_blank">Back the Kickstarter</a>
+
+    <div class="features">
+      <div class="card">
+        <h3>Climb Your Way</h3>
+        <p>Try your luck and go for the flash, or build up your beta for a sure top!</p>
       </div>
-    </dir>
-    <div id="cake" class="section2">
-      <div class="sign">
-        <h1 class="neon">HAPPY BIRTHDAY</h1>
+      <div class="card">
+        <h3>Sabotage & Strategy</h3>
+        <p>Block holds, call weather hazards, or bring support gear to gain the upper hand.</p>
       </div>
-      <div class="cake">
-        <img class="heart" src="heart.png"/>
-        <img class="star" src="star.png"/>
-        <div class="plate"></div>
-        <div class="layer layer-bottom"></div>
-        <div class="layer layer-middle"></div>
-        <div class="layer layer-top"></div>
-        <div class="icing"></div>
-        <div class="drip drip1"></div>
-        <div class="drip drip2"></div>
-        <div class="drip drip3"></div>
-        <div class="candle">
-          <div class="flame"></div>
-        </div>
+      <div class="card">
+        <h3>Real Locations</h3>
+        <p>Featuring iconic crags and climbs through the Bow Valley in Alberta, Canada.</p>
       </div>
     </div>
-  </body>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2>Join the Community</h2>
+    <p>Follow our journey, get sneak peeks at artwork, and be the first to see stretch goal reveals.</p>
+    <a href="https://YOUR_KICKSTARTER_LINK_HERE" class="btn" target="_blank">Support on Kickstarter</a>
+  </section>
+
+  <div class="divider flip"></div>
+
+  <section>
+    <h2>Countdown to Kickstarter Launch</h2>
+    <p id="countdown" style="font-size:2rem; font-weight:bold; color:var(--deep-teal);"></p>
+    <script>
+      const kickstarterDate = new Date("2026-06-01T00:00:00").getTime();
+
+      function updateCountdown() {
+        const now = Date.now();
+        const diff = kickstarterDate - now;
+
+        if (diff <= 0) {
+          document.getElementById("countdown").innerText = "The Kickstarter is LIVE!";
+          return;
+        }
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor(diff / (1000 * 60 * 60) % 24);
+        const m = Math.floor(diff / (1000 * 60) % 60);
+        const s = Math.floor(diff / 1000 % 60);
+
+        document.getElementById("countdown").innerText =
+          `${d} Days ${h} Hours ${m} Minutes ${s} Seconds`;
+      }
+
+      updateCountdown();          // makes it show immediately on load
+      setInterval(updateCountdown, 1000); // updates every second
+    </script>
+  </section>
+
+
+  <div class="divider"></div>
+
+  <section>
+    <h2>Sign Up for Updates</h2>
+    <form action="YOUR_MAILCHIMP_FORM_URL" method="post" target="_blank" style="max-width:500px;margin:auto;">
+      <input type="email" name="EMAIL" placeholder="Your email" required style="width:100%;padding:14px;margin-bottom:10px;border-radius:6px;border:2px solid var(--teal);">
+      <button type="submit" class="btn" style="width:100%; text-align:center;">Join the Mailing List</button>
+    </form>
+  </section>
+
+  <div class="divider flip"></div>
+
+  <section>
+    <h2>Card Preview Carousel</h2>
+    <div id="carousel" style="display:flex;overflow:hidden;gap:20px;scroll-behavior:smooth;">
+      <img src="images/card1.png" width="250" />
+      <img src="images/card2.png" width="250" />
+      <img src="images/card3.png" width="250" />
+      <img src="images/card4.png" width="250" />
+      <img src="images/card5.png" width="250" />
+    </div>
+    <button class="btn" onclick="carousel.scrollBy({left:300, behavior:'smooth'})">Next</button>
+  </section>  
+
+  <footer>
+    © 2025 Climbing Rocks — All Rights Reserved
+  </footer>
+</body>
 </html>
